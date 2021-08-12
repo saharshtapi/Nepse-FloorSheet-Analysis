@@ -63,23 +63,13 @@ def date():
 def convert_df(filtered):
 	df=pd.DataFrame(filtered, columns = ['Stock','Buyer','Seller','Qty','Temp','Temp'])
 	df.__delitem__('Temp')
-	filtered_df=df
-	df1=filtered_df['Stock'].astype(str)
-	filtered_df['Stock']=df1
-	df1=filtered_df['Buyer'].astype(str).astype(int)
-	filtered_df['Buyer']=df1
-	df1=filtered_df['Seller'].astype(str).astype(int)
-	filtered_df['Seller']=df1
-	df1=filtered_df['Qty'].astype(str).astype(int)
-	filtered_df['Qty']=df1
-	df1=filtered_df
-	return df1
+	return df
 
 date=date()
 pg_no=get_pageno()
 print(pg_no)
 filtered=extract_data(int(pg_no))
-#filtered_df=convert_df(filtered)
+filtered_df=convert_df(filtered)
 
 convert(filtered,date)
 
