@@ -36,6 +36,7 @@ jobs:
           python Floorsheet.py
     - name: Commit and Push
       run: |
+           git fetch --unshallow origin
            git config --local user.name "saharshtapi"
            git config --local user.email "saharsh4fun@gmail.com"
            git add -A
