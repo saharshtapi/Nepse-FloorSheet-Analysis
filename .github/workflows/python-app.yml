@@ -34,3 +34,10 @@ jobs:
     - name: Execute Scraping Script
       run: |
           python Floorsheet.py
+    - name: Commit and Push
+      run: |
+           git config --local user.name "saharshtapi"
+           git config --local user.email "saharsh4fun@gmail.com"
+           git add -A
+           git commit -m "Data Extracted"
+           git push
