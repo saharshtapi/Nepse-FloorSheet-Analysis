@@ -40,4 +40,4 @@ jobs:
            git config --local user.email "saharsh4fun@gmail.com"
            git add -A
            git commit -m "Data Extracted"
-           git push
+           git push --force
