@@ -79,9 +79,9 @@ date=date()
 pg_no=get_pageno()
 print(pg_no)
 filtered=extract_data(int(pg_no))
-filtered_df=convert_df(filtered)
+#filtered_df=convert_df(filtered)
 
-convert(filtered_df,date)
+convert(filtered,date)
 
 
 
