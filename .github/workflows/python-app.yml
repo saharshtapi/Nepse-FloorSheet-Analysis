@@ -36,9 +36,6 @@ jobs:
           python Floorsheet.py
     - name: Commit and Push
       run: |
-           rm -rf .git/
-           git init
-           git remote add origin https://github.com/saharshtapi/Nepse-FloorSheet-Analysis.git
            git config --local user.name "saharshtapi"
            git config --local user.email "saharsh4fun@gmail.com"
            git add -A
