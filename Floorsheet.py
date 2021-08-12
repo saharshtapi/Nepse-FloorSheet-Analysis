@@ -81,8 +81,7 @@ print(pg_no)
 filtered=extract_data(int(1))
 filtered_df=convert_df(filtered)
 
-# filtered=filtered[filtered[:, 1].argsort()]
-# convert(filtered,date)
+convert(filtered_df,date)
 
 
 
