@@ -2,3 +2,4 @@ requests
 pandas
 cfscrape
 BeautifulSoup4
+lxml
