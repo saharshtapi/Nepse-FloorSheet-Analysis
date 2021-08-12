@@ -1,4 +1,4 @@
 requests
 pandas
 cfscrape
-BeaurifulSoup4
+BeautifulSoup4
