@@ -1,0 +1,4 @@
+requests
+pandas
+cfscrape
+BeaurifulSoup4
