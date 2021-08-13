@@ -41,5 +41,5 @@ jobs:
            git config --local user.name "saharshtapi"
            git config --local user.email "saharsh4fun@gmail.com"
            git add -A
-           git commit -m "Data Extracted"
+           git commit -m "Data Extracted" --allow-empty
            git push --force
