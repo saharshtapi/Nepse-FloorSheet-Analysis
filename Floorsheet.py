@@ -63,6 +63,13 @@ def date():
 def convert_df(filtered):
 	df=pd.DataFrame(filtered, columns = ['Stock','Buyer','Seller','Qty','Temp','Temp'])
 	df.__delitem__('Temp')
+	buyer_df=df[['Stock','Buyer','Qty']].copy()
+	seller_df=df[['Stock','Seller','Qty']].copy()
+	buyer_df['Qty']=buyer_df['Qty'].astype(str).astype(int)
+	seller_df['Qty']=seller_df['Qty'].astype(str).astype(int)
+	buyer_df=buyer_df.groupby(['Stock','Buyer'],as_index=False)['Qty'].sum()
+	seller_df=seller_df.groupby(['Stock','Seller'],as_index=False)['Qty'].sum()
+	df= pd.concat([buyer_df, seller_df], axis=1)
 	return df
 
 date=date()
@@ -71,7 +78,8 @@ print(pg_no)
 filtered=extract_data(int(pg_no))
 filtered_df=convert_df(filtered)
 
-convert(filtered,date)
+convert(filtered,date) #full data
+filtered_df.to_csv(f'{date}-data.csv',index=False) #filtered data
 
 
 
