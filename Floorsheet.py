@@ -2,6 +2,7 @@ import requests
 import pandas as pd
 import numpy as np
 import cfscrape
+import os.path
 from bs4 import BeautifulSoup
 
 
@@ -46,7 +47,7 @@ def extract_data(n):
 
 #convert to csv
 def convert(final_arr,date):
-	pd.DataFrame(final_arr).to_csv(f'{date}.csv',index=False)
+	pd.DataFrame(final_arr).to_csv(os.path.join('Data',f'{date}.csv'),index=False)
 
 
 # Get Date
@@ -79,7 +80,7 @@ filtered=extract_data(int(pg_no))
 filtered_df=convert_df(filtered)
 
 convert(filtered,date) #full data
-filtered_df.to_csv(f'/Data/{date}-data.csv',index=False) #filtered data
+filtered_df.to_csv(os.path.join('Data',f'{date}-data.csv'),index=False)
 
 
 
