@@ -79,7 +79,7 @@ filtered=extract_data(int(pg_no))
 filtered_df=convert_df(filtered)
 
 convert(filtered,date) #full data
-filtered_df.to_csv(f'{date}-data.csv',index=False) #filtered data
+filtered_df.to_csv(f'/Data/{date}-data.csv',index=False) #filtered data
 
 
 
