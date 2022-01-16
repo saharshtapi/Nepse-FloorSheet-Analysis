@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import cfscrape
 import os.path
+import time
 from bs4 import BeautifulSoup
 
 
