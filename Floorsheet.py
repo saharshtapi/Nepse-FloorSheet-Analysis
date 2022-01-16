@@ -36,6 +36,7 @@ def get_pageno():
 	pg=rawarr[-3][0]
 	pg=pg.split("/")[1]
 	pg=pg.split(" ")[0]
+	pg=pg.split("\xa0")[0]
 	return pg
 
 #extract Data
