@@ -1,4 +1,4 @@
-Stock,Buyer,Qty,Stock,Seller,Qty
+BStock,Buyer,BQty,SStock,Seller,SQty
 ACLBSL,1,10.0,ACLBSL,1,175
 ACLBSL,10,50.0,ACLBSL,13,27
 ACLBSL,16,760.0,ACLBSL,14,250
