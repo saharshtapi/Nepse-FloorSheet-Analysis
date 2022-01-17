@@ -70,8 +70,10 @@ def extract_data(n):
 
 #convert to csv
 def convert(final_arr,date,act):
-	headers=[act,'1','2','3','4','5'] 
-	pd.DataFrame(final_arr).to_csv(os.path.join('Data',f'{date}.csv'),header=headers,index=False)
+	f = open("last_update.txt", "w")
+	f.write(f"{act}")
+	f.close()
+	pd.DataFrame(final_arr).to_csv(os.path.join('Data',f'{date}.csv'),index=False)
 
 
 # Get Date
@@ -80,10 +82,17 @@ def date():
 	html = scraper.get('http://www.nepalstock.com/floorsheet')
 	soup = BeautifulSoup(html.text, "lxml")
 	tdate = soup.find('div',{'id':'date'}).text
-	act_date=tdate.split("   ")[1]
 	tdate=tdate.split("   ")[0]
 	tdate=tdate.split("As of ")[1]
-	return (tdate,act_date)
+	return tdate
+
+def time():
+	scraper = cfscrape.create_scraper()
+	html = scraper.get('http://www.nepalstock.com/floorsheet')
+	soup = BeautifulSoup(html.text, "lxml")
+	tdate = soup.find('div',{'id':'date'}).text
+	act_date=tdate.split("  ")[1]
+	return act_date
 
 # Convert back to Panda Dataframe
 def convert_df(filtered):
@@ -100,12 +109,12 @@ def convert_df(filtered):
 	df= pd.concat([buyer_df, seller_df], axis=1)
 	return df
 
-date,act=date()
+date=date()
 pg_no=get_pageno()
 print(pg_no)
 filtered=extract_data(int(pg_no))
 filtered_df=convert_df(filtered)
-
+act=time()
 convert(filtered,date,act) #full data
 filtered_df.to_csv(os.path.join('Data',f'{date}-data.csv'),index=False)
 
