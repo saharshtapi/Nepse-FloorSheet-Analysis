@@ -92,7 +92,14 @@ def convert(final_arr,date,act):
 # Get Date
 def date():
 	scraper = cfscrape.create_scraper()
-	html = scraper.get('http://www.nepalstock.com/floorsheet')
+	cookie = "ci_session="+requests.get('http://www.nepalstock.com/').cookies['ci_session']
+	headers = {
+	    "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0",
+	    "Accept": """text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8""",
+	    "Cookie": cookie
+    	}
+	url = 'http://www.nepalstock.com/main/floorsheet/index/1/?_limit=500'
+	html = requests.get(url,headers=headers).content
 	soup = BeautifulSoup(html.text, "lxml")
 	tdate = soup.find('div',{'id':'date'}).text
 	tdate=tdate.split("   ")[0]
@@ -101,6 +108,14 @@ def date():
 
 def time():
 	scraper = cfscrape.create_scraper()
+	cookie = "ci_session="+requests.get('http://www.nepalstock.com/').cookies['ci_session']
+	headers = {
+	    "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0",
+	    "Accept": """text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8""",
+	    "Cookie": cookie
+    	}
+	url = 'http://www.nepalstock.com/main/floorsheet/index/1/?_limit=500'
+	html = requests.get(url,headers=headers).content
 	html = scraper.get('http://www.nepalstock.com/floorsheet')
 	soup = BeautifulSoup(html.text, "lxml")
 	tdate = soup.find('div',{'id':'date'}).text
