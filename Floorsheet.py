@@ -41,12 +41,13 @@ def get_pageno():
 
 #extract Data
 def extract_data(n):
+	list_pages=[]
 	final_arr=np.empty(shape=(1,6))
 	cookie = "ci_session="+requests.get('http://www.nepalstock.com/').cookies['ci_session']
 	headers = {
-    		"User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0",
-    		"Accept": """text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8""",
-    		"Cookie": cookie
+	    "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0",
+	    "Accept": """text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8""",
+	    "Cookie": cookie
     	}
 	for i in range (n+1):
 		print(f'{i}', end =" ")  
@@ -56,9 +57,21 @@ def extract_data(n):
 		except:
 			print('sleeping')
 			time.sleep(20)
-			print(f'trying {i} again')
-			url = 'http://www.nepalstock.com/main/floorsheet/index/'+str(i)+'/?_limit=500'
+			print(f'{i} adding to list')
+			list_pages.append(i)
+			continue
+		data_list = pd.read_html(html)
+		data = data_list[-1]
+		rawarr=np.array(data)
+		filtered=filter_func(rawarr,i)
+		final_arr = np.concatenate([final_arr,filtered])
+### Adding for left data
+	while len(list_pages)>0:
+		try:
+			url = 'http://www.nepalstock.com/main/floorsheet/index/'+list_pages[0]+'/?_limit=500'
 			html = requests.get(url,headers=headers).content
+			list_pages.remove(list_pages[0])
+		except:
 			continue
 		data_list = pd.read_html(html)
 		data = data_list[-1]
