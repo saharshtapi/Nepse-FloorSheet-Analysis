@@ -116,7 +116,7 @@ def time():
     	}
 	url = 'http://www.nepalstock.com/main/floorsheet/index/1/?_limit=500'
 	html = requests.get(url,headers=headers).content
-	html = scraper.get('http://www.nepalstock.com/floorsheet')
+#	html = scraper.get('http://www.nepalstock.com/floorsheet')
 	soup = BeautifulSoup(html.text, "lxml")
 	tdate = soup.find('div',{'id':'date'}).text
 	act_date=tdate.split("  ")[1]
