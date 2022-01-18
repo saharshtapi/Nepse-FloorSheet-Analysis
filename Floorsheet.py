@@ -91,7 +91,7 @@ def convert(final_arr,date,act):
 
 # Get Date
 def date():
-	scraper = cfscrape.create_scraper()
+#	scraper = cfscrape.create_scraper()
 	cookie = "ci_session="+requests.get('http://www.nepalstock.com/').cookies['ci_session']
 	headers = {
 	    "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0",
@@ -107,7 +107,7 @@ def date():
 	return tdate
 
 def time():
-	scraper = cfscrape.create_scraper()
+#	scraper = cfscrape.create_scraper()
 	cookie = "ci_session="+requests.get('http://www.nepalstock.com/').cookies['ci_session']
 	headers = {
 	    "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0",
