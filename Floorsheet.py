@@ -84,7 +84,7 @@ def extract_data(n):
 #convert to csv
 def convert(final_arr,date,act):
 	f = open("last_update.txt", "w")
-	f.write(f"{act}")
+	f.write(f"{date}:{act}")
 	f.close()
 	pd.DataFrame(final_arr).to_csv(os.path.join('Data',f'{date}.csv'),index=False)
 
