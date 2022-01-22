@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Nepse-FloorSheet-Analysis/static/css/main.ec47ca5e.css",
+    "main.js": "/Nepse-FloorSheet-Analysis/static/js/main.c581a072.js",
+    "index.html": "/Nepse-FloorSheet-Analysis/index.html",
+    "main.ec47ca5e.css.map": "/Nepse-FloorSheet-Analysis/static/css/main.ec47ca5e.css.map",
+    "main.c581a072.js.map": "/Nepse-FloorSheet-Analysis/static/js/main.c581a072.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ec47ca5e.css",
+    "static/js/main.c581a072.js"
+  ]
+}
