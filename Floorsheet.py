@@ -102,7 +102,7 @@ def date():
 	html = scraper.get('http://www.nepalstock.com/floorsheet')
 	soup = BeautifulSoup(html.text, "lxml")
 	tdate = soup.find('div',{'id':'date'}).text
-	tdate=tdate.split("   ")[0]
+	tdate=tdate.split("   ")[0]
 	tdate=tdate.split("As of ")[1]
 	return tdate
 
