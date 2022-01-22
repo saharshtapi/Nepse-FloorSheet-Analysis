@@ -45,7 +45,7 @@ body{
 }
 @media only screen and (max-width:400px){
     .search-box input[type="text"]{
-        width: 90px;
+        width: 150px;
     }
 }
 input[type="text"]::placeholder{
