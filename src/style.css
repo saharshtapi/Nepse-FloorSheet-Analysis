@@ -43,6 +43,11 @@ body{
     border: 1px solid;
     font-size: 20px;
 }
+@media only screen and (max-width:400px){
+    .search-box input[type="text"]{
+        width: 90px;
+    }
+}
 input[type="text"]::placeholder{
     color: #FFFCF2;
 }
